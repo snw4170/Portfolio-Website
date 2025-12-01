@@ -10,15 +10,23 @@
     </head>
 
     <body class="grid-container">
-        <h1 class="grid-item-title">
-            Samuel Wright
-        </h1>
+        <div class="grid-item-title">
+            <button id="mode-toggle" class="mode-toggle-button">
+                Switch to Light Mode ☀️
+            </button>
+            <h1>
+                Samuel Wright
+            </h1>
+        </div>
+
         <section class="grid-item-about content-box">
             <h2>
                 About Me
             </h2>
             <p>
-                A passionate Computer Science student with a focus on web development technologies. Seeking to leverage skills in HTML, CSS, and current learning in React to build clean, efficient, and user-friendly applications. Eager to contribute to a collaborative environment and further develop professional communication and coding abilities.
+                A passionate Computer Science graduate with a focus on web development technologies. 
+                Seeking to leverage skills in HTML, CSS, and current learning in React to build clean, efficient, and user-friendly applications. 
+                Eager to contribute to a collaborative environment and further develop professional communication and coding abilities.
             </p>
         </section>
 
@@ -29,9 +37,32 @@
             <p>
                 <strong>Michigan Technological University</strong> | Houghton MI <br>
                 Bachlor of Science, Computer Science <br>
-                Expected Graduation: May 2026
+                Graduated: August 2026
             </p>
         </section>
+
+        <section class="grid-item-project content-box">
+            <h2>
+                Project Experience
+            </h2>
+            <h3>Portfolio Website (This Site)</h3>
+            <p>Designed and developed a professional, responsive portfolio website using an HTML/CSS grid layout to showcase educational background, skills, and projects.</p>
+            <ul>
+                <li>Technologies Used: HTML, CSS, Grid Layout</li>
+            </ul>
+            <p>
+                <a href="https://github.com/snw4170/Portfolio-Website" target="_blank">View on GitHub</a>
+            </p>
+            <h3>Finance Assistent - Team of 6 | MTU</h3>
+            <p><strong>Project:</strong> Developed a Java-based application to help users manage finances using time-based tracking and graphical reporting.</p>
+            <ul>
+                <li>Designed front-end components using JavaFX and CSS</li>
+                <li>Used user input data to visualize spending habits and allocate funds to various spending buckets</li>
+                <li>Collaborated using the Scrum model and Jira software to manage development cycles and ensure team accountability</li>
+                <li>Demonstrated strong problem-solving and discussion skills during sprint meeting with professor to simulate production environments</li>
+            </ul>
+        </section>
+
         <section class="grid-item-skills content-box">
             <h2>
                 Skills
@@ -39,26 +70,31 @@
             <ul>
                 <li>HTML5 / CSS3</li>
                 <li>Professional Communication</li>
+                <li>Project Management</li>
                 <li>Microsoft Office Suite</li>
                 <li>VSCode</li>
                 <li>React (Currently Learning)</li>
+                <li>Scrum</li>
             </ul>
         </section>
 
-        <section class="grid-item-project content-box">
+        <section class="grid-item-work-history content-box">
             <h2>
-                Project Experience
+                Work History
             </h2>
-            <div class="project-details">
-                <h3>Portfolio Website (This Site)</h3>
-                <p>Designed and developed a professional, responsive portfolio website using an HTML/CSS grid layout to showcase educational background, skills, and projects.</p>
-                <ul>
-                    <li>**Technologies:** HTML, CSS, Grid Layout</li>
-                </ul>
-                <p>
-                    <a href="#" target="_blank">View on GitHub</a>
-                </p>
-            </div>
+            <h3>Curbside Clerk | May 2022 - Present</h3>
+            <ul>
+                <li>Efficiently fulfill large volumes of customer orders, ensuring high accuracy under time constraints</li>
+                <li>Communicate with customers and team members to resolve real-time problems and maintain satisfaction</li>
+                <li>Operate handheld devices and software to track inventory and ensure order precision</li>
+                <li>Recognized for professionalism and consistent attention to detail during customer interactions</li>
+                <li>Work closely with team members to adapt to changing daily workflows and priorities</li>
+            </ul>
+            <h3>College Esports Commentator | Sep 2022 - April 2024</h3>
+            <ul>
+                <li>Collaborated with production and tech teams to ensure smooth live broadcasts</li>
+                <li>Demonstrated strong communication skills and quick decision-making in a live environment</li>
+            </ul>
         </section>
     </body>
 
@@ -67,4 +103,31 @@
             This page was made my Samuel Wright | <a href="mailto:snwright150@gmail.com">Contact Me</a>
         </p>
     </footer>
+
+    <script>
+        const body = document.body;
+        const toggleButton = document.getElementById('mode-toggle');
+
+        // Check for local storage preference, default to dark mode if none is found
+        const currentMode = localStorage.getItem('colorMode');
+        if (currentMode === 'light') {
+            body.classList.add('light-mode');
+            toggleButton.textContent = 'Switch to Dark Mode 🌙';
+        }
+
+        toggleButton.addEventListener('click', () => {
+            // Toggle the 'light-mode' class on the body
+            body.classList.toggle('light-mode');
+            const isLightMode = body.classList.contains('light-mode');
+
+            // Update the button text and save preference to local storage
+            if (isLightMode) {
+                toggleButton.textContent = 'Switch to Dark Mode 🌙';
+                localStorage.setItem('colorMode', 'light');
+            } else {
+                toggleButton.textContent = 'Switch to Light Mode ☀️';
+                localStorage.setItem('colorMode', 'dark');
+            }
+        });
+    </script>
 </html>
